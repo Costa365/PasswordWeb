@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+  <head>
+    <title>Password Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get country and ISO code information">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" type= "text/css" href= "styles.css">
+  </head>
+  <body>
+    <script>
+      function getNewPassword() {
+        const url = 'https://cfworker.costa365.workers.dev'
+
+        fetch(url)
+            .then( res => { return res.json(); } )
+            .then( data => {
+              document.getElementById("password").value = data['password'];
+            } )
+            .catch( err => { console.errror(error) } )
+      }
+      window.onload = getNewPassword;
+    </script>
+    <div class="container">
+      <div class="container">
+        <img class="banner" src="banner.jpg" alt="">
+        <div class="bottom-right">Password Generator</div>
+      </div>
+      <p>
+        If your password is 12 characters long and comprises numbers, upper and lowercase letters and symbols, it will take a hacker 34,000 years to crack. 
+        <i>(<a href="https://www.security.org/how-secure-is-my-password/" target="_blank">Security.org</a>)</i>
+      </p>
+      <p>
+        <input type="text" id="password" placeholder="" name="password" value="" readonly>
+      </p>
+      <p>
+        <button onclick="getNewPassword()">Generate New Password</button>
+      </p>
+    </div>
+
+  </body>
+</html>
