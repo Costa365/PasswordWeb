@@ -11,7 +11,7 @@
   <body>
     <script>
       function getNewPassword() {
-        const url = 'https://cfworker.costa365.workers.dev'
+        const url = 'https://cfworker.costa365.workers.dev?upper=4&lower=4&special=2&num=2'
 
         fetch(url)
             .then( res => { return res.json(); } )
